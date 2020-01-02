@@ -94,10 +94,8 @@ declare class RichEmbed extends Object {
     embedOptions:embedMessageOpts;
 }
 
-declare type Sweetcord = {
+export interface Sweetcord {
   Client:Client,
   RichEmbed:RichEmbed,
   Permission:Permissions
 }
-
-export = Sweetcord;
