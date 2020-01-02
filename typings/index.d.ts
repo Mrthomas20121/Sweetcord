@@ -14,6 +14,19 @@ declare type FieldObject = {
 }
 declare type Snowflake = String;
 
+declare type WebSocketEvent = {
+  d: any;
+  op: number;
+  s: number;
+  t: string;
+};
+
+declare type game = {
+  name: string;
+  type: number;
+  url?: string;
+};
+
 declare type readyCallback = (event: WebSocketEvent) => void;
 declare type messageCallback = (user: string, userID: string, channelID: string, mesage: string, event: WebSocketEvent) => void;
 declare type presenceCallback = (user: string, userID: string, status: string, game: game, event: WebSocketEvent) => void;
