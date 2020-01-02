@@ -1,3 +1,5 @@
+import { Permissions, User } from "discord.io";
+
 declare type msgOpts = {
   to: string,
   file?: string,
@@ -12,7 +14,11 @@ declare type FieldObject = {
 }
 declare type Snowflake = String;
 
-declare function callbackFunc(err:Error, res:Object): void
+declare type readyCallback = (event: WebSocketEvent) => void;
+declare type messageCallback = (user: string, userID: string, channelID: string, mesage: string, event: WebSocketEvent) => void;
+declare type presenceCallback = (user: string, userID: string, status: string, game: game, event: WebSocketEvent) => void;
+declare type anyCallback = (event: WebSocketEvent) => void;
+declare type disconnectCallback = (errMsg: string, code: number) => void;
 
 declare type embedMessageOpts = {
   author?: {
@@ -39,6 +45,17 @@ declare type embedMessageOpts = {
   }
 }
 
+declare interface roleOptions {
+  username:String,
+  channelID:String,
+  roleName:String
+}
+
+declare interface findUserOtps {
+  channelID:String,
+  username:String
+}
+
 declare class Client {
   prefix:string
 
@@ -50,11 +67,24 @@ declare class Client {
     prefix?: string
   });
   
-  sendTo(options: msgOpts): void
+  send(options: msgOpts, callback:messageCallback): void
+  addRoleToUser(opts:roleOptions, callback:anyCallback): void
+  removeRoleToUser(opts:roleOptions, callback:anyCallback): void
+  getDiscriminatorByUsername(username:String): User
+  getDiscriminatorByUserId(userID:String): User
+  findUser(opts: findUserOtps): User
+
+
 }
 
 declare class RichEmbed extends Object {
     embedOptions:embedMessageOpts;
 }
 
-export = Client;
+declare type Sweetcord = {
+  Client:Client,
+  RichEmbed:RichEmbed,
+  Permission:Permissions
+}
+
+export = Sweetcord;
