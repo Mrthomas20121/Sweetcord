@@ -1,4 +1,4 @@
-import { Permissions, User } from "discord.io";
+import { Permissions, User, Client } from "discord.io";
 
 declare type msgOpts = {
   to: string,
@@ -69,7 +69,7 @@ declare interface findUserOtps {
   username:String
 }
 
-declare class Client {
+declare class SweetClient extends Client {
   prefix:string
 
   constructor(opts: {
@@ -95,7 +95,7 @@ declare class RichEmbed extends Object {
 }
 
 export interface Sweetcord {
-  Client:Client,
+  Client:SweetClient,
   RichEmbed:RichEmbed,
   Permission:Permissions
 }
