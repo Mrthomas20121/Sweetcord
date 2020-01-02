@@ -1,0 +1,26 @@
+{
+  "name": "sweetcord",
+  "version": "1.0.0",
+  "description": "a framework on top of Discord.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/test.js"
+  },
+  "typings": "./typings/index.d.ts",
+  "keywords": [
+    "discord",
+    "discord.io",
+    "discord.js",
+    "discord javascript",
+    "javascript discord",
+    "js discord",
+    "discord js",
+    "sweetcord",
+    "Sweetcord"
+  ],
+  "author": "Mrthomas20121",
+  "license": "MIT",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6"
+  }
+}

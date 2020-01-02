@@ -1,0 +1,7 @@
+# files
+.gitignore
+*.bat
+auth.json
+
+# folders
+_node_modules
