@@ -1,9 +1,9 @@
 declare type msgOpts = {
   to: string,
-  file?: string|Buffer,
+  file?: string,
   filename?: string,
   message?: string,
-  embed?: embedMessageOpts|embed
+  embed?: embedMessageOpts|RichEmbed
 }
 declare type FieldObject = {
   name:String,
@@ -53,17 +53,8 @@ declare class Client {
   sendTo(options: msgOpts): void
 }
 
-declare class embed extends Object {
-  title:string;
-  color:Number;
-  fields:Array<FieldObject>;
-
-  constructor(options:embedMessageOpts) {
-
-  }
-  
-  sendTo(client: Client, channelID:Snowflake, callbackFunc): void
+declare class RichEmbed extends Object {
+    embedOptions:embedMessageOpts;
 }
 
 export = Client;
-export = embed;
