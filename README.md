@@ -7,7 +7,7 @@ you can make your bots use sweetcord by doing the following:
 ```js
 const Sweetcord = require('sweetcord');
 
-const client = new Sweetcord.Client({
+const client = new Sweetcord.SweetClient({
   token:'INSERT BOT TOKEN HERE',
   autorun:true
 });
